@@ -13,8 +13,7 @@ def logger(file_name: str) -> None:
 
 
 def app() -> None:
-
-    # after combining there are more rows, because there ar more policies per car
+    
     df = combine_files()
 
     check_data_quality(df)
