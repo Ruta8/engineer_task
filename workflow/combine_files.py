@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 
-def combine_files(file_list: list) -> pd.DataFrame:
+def concat_files(file_list: list) -> pd.DataFrame:
     """Appends csv files one on top of the other.
 
     Args:
@@ -11,16 +11,17 @@ def combine_files(file_list: list) -> pd.DataFrame:
     Returns:
         pd.DataFrame: a new DataFrame consisting of the rows of all csv files in the file_list.
     """
-
     csv_list = []
     [
-        csv_list.append(pd.read_csv(file).assign(file_Name=os.path.basename(file)))
-        for file in sorted(file_list)
+        csv_list.append(
+            pd.DataFrame(pd.read_csv(file).assign(file_Name=os.path.basename(file)))
+        )
+        for file in file_list
     ]
 
-    csv_merged = pd.concat(csv_list, ignore_index=True)
+    merged_csv = pd.concat(csv_list)
 
-    return csv_merged
+    return merged_csv
 
 
 def get_file_list(data_path: str, file_names_start_with: str = None) -> list:
@@ -42,3 +43,16 @@ def get_file_list(data_path: str, file_names_start_with: str = None) -> list:
 
     return file_list
 
+
+def combine_files():
+
+    raw_folder_file_list = get_file_list(
+        data_path="data/raw/", file_names_start_with="task_data"
+    )
+    concatanated_files = concat_files(raw_folder_file_list)
+
+    df = concatanated_files.merge(
+        pd.read_csv("data/external/POLICY_DATA.csv"), how="left", on="policy_id"
+    )
+
+    return df

@@ -1,0 +1,33 @@
+06/01/2022 10:13:42 AM - check_quality.py - There are 48 duplicated values in policy_id column.
+06/01/2022 10:13:42 AM - check_quality.py - There are 0 dupicated rows.
+06/01/2022 10:13:42 AM - check_quality.py - Missing values summary: 
+                           0
+id                        0
+car_brand                 0
+car_registration_year     0
+car_eng_pow              40
+customer_age             40
+postal_code            1083
+claim_amount            123
+policy_id                 0
+marital_status          123
+file_Name                 0
+policy_start              0
+policy_end                0 
+06/01/2022 10:13:42 AM - check_quality.py - Data set description: 
+                 id  car_registration_year  car_eng_pow  customer_age  claim_amount  marital_status
+count  2032.000000            2032.000000  1992.000000   1992.000000   1909.000000     1909.000000
+mean    500.112697            1999.815453   272.669177     57.213353   1248.314531        1.497643
+std     288.391714               9.440523   130.927904     23.995755    713.764661        0.500125
+min       1.000000            1909.000000    50.000000     16.000000      0.420000        1.000000
+25%     251.750000            1994.000000   157.000000     37.000000    640.240000        1.000000
+50%     499.500000            2001.000000   269.000000     56.000000   1247.590000        1.000000
+75%     749.250000            2007.000000   386.000000     78.000000   1875.490000        2.000000
+max    1000.000000            2013.000000   500.000000    100.000000   2499.980000        2.000000
+06/01/2022 10:13:42 AM - transform_data.py - Missing values in column list ['car_brand', 'postal_code'] where filled with the column mode.
+06/01/2022 10:13:42 AM - transform_data.py - Missing values in column list ['marital_status'] where filled with value_dictionary respectively.
+06/01/2022 10:13:42 AM - transform_data.py - Missing values in column list ['postal_code'] where filled with value_dictionary respectively.
+06/01/2022 10:13:42 AM - transform_data.py - New column car_age_group was created.
+06/01/2022 10:13:42 AM - transform_data.py - New column car_eng_pow_group was created.
+06/01/2022 10:13:42 AM - transform_data.py - New column customer_age_group was created.
+06/01/2022 10:13:42 AM - transform_data.py - Columns in column list ['policy_start', 'policy_end'] where parsed as dates.
